@@ -10,7 +10,5 @@ inputs:
     required: true
 
 runs:
-  using: "composite"
-  steps:
-    - run: "./entrypoint.sh"
-      shell: bash
+  using: docker
+  image: "Dockerfile"
