@@ -1,10 +1,11 @@
 const { Octokit } = require("@octokit/core");
 const github = require('@actions/github');
+const core = require('@actions/core');
 
 const context = github.context;
-
+const githubToken = core.getInput("githubToken");
 // Create a new Octokit instance
-const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+const octokit = new Octokit({ auth: githubToken });
 
 // Extract the relevant information from the GitHub Actions context
 const owner = context.repo.owner;

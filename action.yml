@@ -1,9 +1,13 @@
-name: "Pr labeler"
-description: "Add labels to your PR"
+name: "PR labeler - commit based"
+description: "Add labels to your PR based in commits"
 author: AntonioGally
 branding:
   icon: file-text
   color: purple
+inputs:
+  githubToken:
+    description: "Github default token"
+    required: true
 
 runs:
   using: "composite"
