@@ -1,0 +1,12 @@
+name: "Pr labeler"
+description: "Add labels to your PR"
+author: AntonioGally
+branding:
+  icon: file-text
+  color: purple
+
+runs:
+  using: "composite"
+  steps:
+    - run: ./entrypoint.sh
+      shell: bash
