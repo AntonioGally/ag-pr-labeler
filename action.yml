@@ -8,6 +8,9 @@ inputs:
   githubToken:
     description: "Github default token"
     required: true
+  createRepoLabels:
+    description: "Create required labels to your repository"
+    required: false
 
 runs:
   using: docker
