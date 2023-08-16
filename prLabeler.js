@@ -6,11 +6,11 @@ const { getCommitMessages, applyLabels, getCommitLabels } = require("./utils/sha
 const { verifyIfRepoHasAllLabels } = require("./utils/missingLabels");
 
 async function main() {
-    const context = github.context;
-    const octokit = new Octokit({ auth: githubToken });
-
     const githubToken = core.getInput("githubToken");
     const createRepoLabels = core.getInput("createRepoLabels");
+
+    const context = github.context;
+    const octokit = new Octokit({ auth: githubToken });
 
     const owner = context.repo.owner;
     const repo = context.repo.repo;
