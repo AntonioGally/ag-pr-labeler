@@ -9,5 +9,8 @@ WORKDIR /action
 # Install the dependencies
 RUN npm install
 
+# Ensure the script is executable
+RUN chmod +x /action/entrypoint.sh
+
 # Set the entrypoint
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["/action/entrypoint.sh"]
