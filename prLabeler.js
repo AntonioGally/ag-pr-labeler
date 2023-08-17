@@ -7,7 +7,10 @@ const { verifyIfRepoHasAllLabels } = require("./utils/missingLabels");
 
 async function main() {
     const githubToken = core.getInput("githubToken");
-    const createRepoLabels = core.getInput("createRepoLabels");
+    let createRepoLabels = core.getInput("createRepoLabels");
+    if (createRepoLabels != null) {
+        createRepoLabels = createRepoLabels === "true" ? true : false;
+    }
 
     const context = github.context;
     const octokit = new Octokit({ auth: githubToken });
