@@ -1,3 +1,5 @@
+const { commitTypeToLabel } = require("./sharedFunctions");
+
 const getRandomHexColor = () => {
     const letters = '0123456789ABCDEF';
     let color = '#';
@@ -34,7 +36,10 @@ const verifyIfRepoHasAllLabels = async (octokit, owner, repo) => {
 
     if (missingLabels.length > 0) {
         await createMissingLabels(octokit, owner, repo, missingLabels);
+        return;
     }
+
+    console.log("All required labels existents");
 }
 
 module.exports = {

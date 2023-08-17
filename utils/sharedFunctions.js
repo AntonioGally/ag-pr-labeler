@@ -1,5 +1,5 @@
 const commitTypeToLabel = {
-    feat: 'Feature :sparkle:',
+    feat: 'Feature :sparkles:',
     fix: 'Bug :bug:',
     docs: 'Documentation :memo:',
     style: 'Style :lipstick:',
@@ -24,6 +24,8 @@ async function applyLabels(labels, octokit, owner, repo, pull_number) {
     await octokit.request(`POST /repos/${owner}/${repo}/issues/${pull_number}/labels`, {
         labels
     });
+    
+    console.log("Added labels: ", labels);
 }
 
 function getCommitLabels(commitMessages, head_branch_name) {
@@ -52,5 +54,6 @@ function getCommitLabels(commitMessages, head_branch_name) {
 module.exports = {
     getCommitMessages,
     applyLabels,
-    getCommitLabels
+    getCommitLabels,
+    commitTypeToLabel
 }
